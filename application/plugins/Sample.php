@@ -11,6 +11,9 @@ class SamplePlugin extends Yaf_Plugin_Abstract {
 	}
 
 	public function routerShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+		$uri = $request->getRequestUri();
+		$uri = substr($uri, 1);
+		$request->controller = $uri;
 	}
 
 	public function dispatchLoopStartup(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
